@@ -1,18 +1,22 @@
 
 % The Fourier transform lets us express a function as a countable sum of "fourier coefficients".
-% This demonstrates the discrete fourier transform.
+% This demonstrates the discrete fourier transform: https://en.wikipedia.org/wiki/Discrete_Fourier_transform
 
 % Some set up.
 clear;
 cla;
 hold on;
+axis equal;
+axis square;
 % Ignore this warning. imaginary parts will be small for real functions.
 warning('off','MATLAB:plot:IgnoreImaginaryXYPart')
 
 
 N = 128;						% Sample density
 X = linspace(0, 2*pi, N);		% Interval length is 2*pi
-Y = X;							% Our function. Experiment with this!
+
+% Our function. Experiment with this! Try X.^2, X.^10, etc.
+Y = X;
 
 
 % First we find the fourier coefficients, f_hat
@@ -42,6 +46,3 @@ for x=1:N
 end
 
 plot(X, F, 'LineWidth',3);
-
-axis equal;
-axis square;
